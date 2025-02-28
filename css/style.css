@@ -1,0 +1,90 @@
+.canvas-container {
+    position: relative;
+    width: 100%; /* Đặt chiều rộng cho container */
+    height: 100vh; /* Đặt chiều cao cho container */
+}
+canvas {
+    position: absolute; /* Đặt vị trí tuyệt đối cho canvas */
+    top: 0;
+    left: 0;
+}
+.menu-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 1000;
+    background: rgba(26, 13, 202, 0.1);
+    padding: 40px;
+    border-radius: 15px;
+    border: 2px solid #4a90e2;
+    box-shadow: 0 0 20px rgba(74, 144, 226, 0.3),
+               inset 0 0 15px rgba(74, 144, 226, 0.2);
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: center;
+}
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+.menu-button {
+    background: #4a90e2;
+    color: white;
+    border: none;
+    padding: 10px 20px;  /* Tăng padding ngang */
+    margin: 12px;  /* Tăng margin */
+    font-size: 24px;  /* Tăng font size */
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'BlackJack', sans-serif;
+    min-width: 200px;  /* Thêm min-width để các nút bằng nhau */
+}
+.menu-button:hover {
+    background: #825556;
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(74, 144, 226, 0.5);
+}
+@font-face {
+    font-family: 'BlackJack';
+    src: url('../asset/fonts/BLACKJAR.TTF');
+    font-weight: normal;
+    font-style: normal;
+}
+.test{
+    font-size: 48px;
+}
+.menu-title {
+    font-family: 'BlackJack', sans-serif;
+    color: #4a90e2;
+    font-size: 48px;
+    margin-bottom: 10px;
+    text-shadow: 0 0 10px rgba(74, 144, 226, 0.5);
+    letter-spacing: 2px;
+}
+.summary {
+    font-family: 'BlackJack', sans-serif;
+    color: #eaff00;
+    font-size: 30px;
+    margin-bottom: 10px;
+    text-shadow: 0 0 10px rgba(74, 144, 226, 0.5);
+    letter-spacing: 2px;
+    text-align: left;
+    padding-left: 10px;
+    padding-bottom: 20px;
+}
+.menu-image {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 35px;
+    border-radius: 15px;
+    object-fit: cover;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
