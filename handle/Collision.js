@@ -25,16 +25,19 @@ class Collision {
         });
         return collision;
     }
-    checkBulletBoss(player) {
+    checkBulletBoss(player,boss) {
         let collision = false;
+        const nearBoss = Math.sqrt((boss.x - player.x) ** 2 + (boss.y - player.y) ** 2);
         this.bullBoss = this.bullBoss.filter(position => {
             const distance = Math.sqrt((position.x - player.x) ** 2 + (position.y - player.y) ** 2);
             if (distance < (player.rad + 10)) { // Giả sử bán kính của viên đạn là 5
                 this.hpplayer -= 1; // Giảm HP của player
                 collision = true;
-                console.log("đạn va chạm:", position) ;
                 this.bulletCollisionBoss.push({x: position.x, y: position.y});
-                console.log(this.bulletCollisionBoss);
+            }
+            if (nearBoss < (boss.rad + player.rad)) {
+                this.hpplayer -= 1; // Giảm HP của player
+                collision = true;
             }
         });
         return collision;

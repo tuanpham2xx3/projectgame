@@ -221,7 +221,7 @@
             SpawnBoss();
             const coll = new Collision(bullets, bulletsBoss, hpPlayer, hpBoss);
             collBoss = coll.checkBulletCollision(boss);
-            collPlayer = coll.checkBulletBoss(player);
+            collPlayer = coll.checkBulletBoss(player,boss);
             if(collBoss) {    
                 anima.gethit(boss,context);
                 audioManager.playSound('hit');
@@ -260,6 +260,7 @@
                 numCrep--;
             }
             let lastBulletTimeGlobal = 0;
+
             creps.forEach((crep, index) => {
                 const position = crepCoordinates[index % crepCoordinates.length];
                 crep.move(position.x, position.y, context);
@@ -285,7 +286,7 @@
                 });
             creps.forEach(crep => {
                 bullets = bullets.filter(bullet => {
-                    if (coll.checkBulletCrep(bullet, crep)) {
+                    if (coll.checkBulletCrep(bullet, crep,player)) {
                         audioManager.playSound('hit');
                         audioManager.setVolume('hit', 0.5);
                         scoreCrep += 1000;
